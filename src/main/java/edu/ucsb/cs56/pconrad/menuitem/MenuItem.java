@@ -24,8 +24,8 @@ public class MenuItem {
 	return this.name;
     }
 
-    public String getPriceInCents(){
-	return Integer.toString(this.priceInCents);
+    public Int getPriceInCents(){
+	return this.priceInCents;
     }
 
     public String getCategory(){
