@@ -23,7 +23,11 @@ public class MenuItem {
     public String getName(){
 	return this.name;
     }
-    
+
+    public String getPriceInInt(){
+	return Integer.toString(this.priceInCents);
+    }
+
     public String getCategory(){
 	return this.category;
     }
@@ -34,8 +38,9 @@ public class MenuItem {
      */
 
     public String getPrice() {
-	int PriceInDollar=this.priceInCents/100;
-	return "$"+Integer.toString(PriceInDollar);
+	double d=this.priceInCents; 
+	double PriceInDollar=d/100;
+	return "$"+Double.toString(PriceInDollar);
     }
 	
     /**
@@ -50,10 +55,14 @@ public class MenuItem {
      */
 
     public String getPrice(int width) {
-	    int PriceInDollar=this.priceInCents/100;
-	    String displayPrice="$"+Integer.toString(PriceInDollar);
-	    if(displayPrice.length()<width){
-		throw new IllegalArgumentException("@param width width of returned string");
+	    double d=this.priceInCents;
+	    double PriceInDollar=d/100;
+	    String displayPrice="$"+Double.toString(PriceInDollar);
+	    if(displayPrice.length()>width){
+		throw new MenuItem.TooNarrowException();
+	    }
+	    while (displayPrice.length()!=width){
+		 displayPrice=" "+displayPrice;
 	    }
 	    return displayPrice;
     }
@@ -67,7 +76,7 @@ public class MenuItem {
     @Override
     public String toString() {
 	//return "a";
-	return this.getName()+","+this.getPrice()+","+this.getCategory();
+	return this.getName()+","+this.getPriceInInt()+","+this.getCategory();
     }
 
 }
