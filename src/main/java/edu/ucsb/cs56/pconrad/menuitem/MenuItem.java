@@ -24,7 +24,7 @@ public class MenuItem {
 	return this.name;
     }
 
-    public String getPriceInInt(){
+    public String getPriceInCents(){
 	return Integer.toString(this.priceInCents);
     }
 
@@ -76,7 +76,7 @@ public class MenuItem {
     @Override
     public String toString() {
 	//return "a";
-	return this.getName()+","+this.getPriceInInt()+","+this.getCategory();
+	return this.getName()+","+this.getPriceInCents()+","+this.getCategory();
     }
 
 }
