@@ -24,7 +24,7 @@ public class MenuItem {
 	return this.name;
     }
 
-    public Int getPriceInCents(){
+    public int getPriceInCents(){
 	return this.priceInCents;
     }
 
